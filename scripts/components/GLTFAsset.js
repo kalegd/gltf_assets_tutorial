@@ -9,20 +9,18 @@ export default class GLTFAsset {
         this._position = (params['Position']) ? params['Position'] : [0,0,0];
         this._rotation = (params['Rotation']) ? params['Rotation'] : [0,0,0];
 
-        this._pivotPoint.position.fromArray(this._position);
         this._pivotPoint.scale.set(this._scale, this._scale, this._scale);
+        this._pivotPoint.position.fromArray(this._position);
         this._pivotPoint.rotation.fromArray(this._rotation);
 
-        this._createMeshes(params['File']);
+        this._createMesh(params['Filename']);
     }
 
-    _createMeshes(filename) {
-        const gltfLoader = new GLTFLoader();
-        gltfLoader.load(filename,
-            (gltf) => {
-                this._pivotPoint.add(gltf.scene);
-            }
-        );
+    _createMesh(filename) {
+        let gltfLoader = new GLTFLoader();
+        gltfLoader.load(filename, (gltf) => {
+            this._pivotPoint.add(gltf.scene);
+        });
     }
 
     addToScene(parent) {

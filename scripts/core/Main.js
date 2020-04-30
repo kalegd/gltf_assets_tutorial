@@ -57,15 +57,15 @@ export default class Main {
         skybox.addToScene(this._scene);
 
         let spaceship = new GLTFAsset({
-            "File": "./models/lowpoly_spaceship.glb",
+            "Filename": "./models/lowpoly_spaceship.glb",
             "Scale": 0.01,
-            "Position": [-5,0,-20],
-            "Rotation": [Math.PI/2,0,0],
+            "Position": [-8,2,-20],
+            "Rotation": [Math.PI/4,0,0],
         });
         let planet = new GLTFAsset({
-            "File": "./models/lowpoly_planet.glb",
+            "Filename": "./models/lowpoly_planet.glb",
             "Scale": 0.01,
-            "Position": [20,0,-20],
+            "Position": [10,2,-20],
             "Rotation": [0,0,0],
         });
         spaceship.addToScene(this._scene);
